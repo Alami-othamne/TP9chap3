@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Accueil | Spring Security Demo</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" th:href="@{/}" aria-label="Retour à l'accueil">
+            <span class="brand-mark" aria-hidden="true">S</span>
+            <span>Spring <strong>Security</strong></span>
+        </a>
+        <a class="nav-link" th:href="@{/login}">Connexion</a>
+    </div>
+</header>
+<main class="container home-main">
+    <div class="hero-kicker"><span class="status-dot"></span> TP Spring Boot · Authentification &amp; autorisation</div>
+    <h1>Une application simple.<br><span class="accent">Des accès maîtrisés.</span></h1>
+    <p class="hero-copy">Découvrez comment Spring Security protège les routes, authentifie les utilisateurs et distingue les permissions selon les rôles.</p>
+    <div class="cards">
+        <article class="feature-card">
+            <div class="feature-icon user-icon" aria-hidden="true">U</div>
+            <span class="eyebrow">RÔLE USER</span>
+            <h2>Espace Utilisateur</h2>
+            <p>Un tableau de bord réservé aux utilisateurs authentifiés qui possèdent le rôle USER.</p>
+            <a class="btn btn-primary" th:href="@{/user/dashboard}">Accéder à l'espace utilisateur <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="feature-card">
+            <div class="feature-icon admin-icon" aria-hidden="true">A</div>
+            <span class="eyebrow">RÔLE ADMIN</span>
+            <h2>Espace Administrateur</h2>
+            <p>Une zone protégée exclusivement réservée aux personnes ayant le rôle ADMIN.</p>
+            <a class="btn btn-secondary" th:href="@{/admin/dashboard}">Accéder à l'espace administrateur <span aria-hidden="true">→</span></a>
+        </article>
+    </div>
+    <div class="info-strip"><span class="strip-icon" aria-hidden="true">✓</span> L'accueil est public. Spring Security demande une connexion uniquement lorsqu'une route protégée est consultée.</div>
+</main>
+<footer class="site-footer">TP Spring Security · Spring Boot 3.5 · Thymeleaf · BCrypt</footer>
+</body>
+</html>

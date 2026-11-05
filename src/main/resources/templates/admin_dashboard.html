@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Espace administrateur | Spring Security Demo</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" th:href="@{/}"><span class="brand-mark" aria-hidden="true">S</span><span>Spring <strong>Security</strong></span></a>
+        <form th:action="@{/logout}" method="post"><button class="nav-logout" type="submit">Déconnexion</button></form>
+    </div>
+</header>
+<main class="container dashboard-main">
+    <div class="breadcrumb"><a th:href="@{/}">Accueil</a><span>/</span><span>Espace administrateur</span></div>
+    <div class="dashboard-intro"><span class="pill pill-admin">✓ ACCÈS ADMIN AUTORISÉ</span><h1>Tableau de bord administrateur</h1><p>Bienvenue <strong th:text="${username}">admin</strong>, vous disposez des autorisations administrateur.</p></div>
+    <div class="dashboard-grid">
+        <section class="dashboard-panel"><span class="eyebrow">AUTORISATION</span><h2>Permissions élevées</h2><p>Cette page nécessite obligatoirement le rôle ADMIN : les utilisateurs standards ne peuvent pas y accéder.</p><div class="data-row"><span>Compte connecté</span><strong th:text="${username}">admin</strong></div><div class="data-row"><span>Rôle requis</span><span class="mini-code">ROLE_ADMIN</span></div></section>
+        <section class="dashboard-panel"><span class="eyebrow">HÉRITAGE DES ACCÈS</span><h2>Deux espaces accessibles</h2><p>Dans ce TP, le compte admin possède à la fois les rôles ADMIN et USER.</p><a class="btn btn-secondary" th:href="@{/user/dashboard}">Ouvrir l'espace utilisateur <span aria-hidden="true">→</span></a></section>
+    </div>
+    <a class="back-link" th:href="@{/}">← Retour à l'accueil</a>
+</main>
+<footer class="site-footer">TP Spring Security · Contrôle d'accès par rôles</footer>
+</body>
+</html>

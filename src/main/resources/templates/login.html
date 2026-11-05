@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Connexion | Spring Security Demo</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="auth-body">
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" th:href="@{/}"><span class="brand-mark" aria-hidden="true">S</span><span>Spring <strong>Security</strong></span></a>
+        <a class="nav-link" th:href="@{/}">← Accueil</a>
+    </div>
+</header>
+<main class="auth-layout">
+    <section class="auth-card" aria-labelledby="login-title">
+        <div class="lock-icon" aria-hidden="true">●</div>
+        <span class="eyebrow">ACCÈS SÉCURISÉ</span>
+        <h1 id="login-title">Bienvenue !</h1>
+        <p class="muted">Connectez-vous pour accéder à votre espace.</p>
+        <div th:if="${param.error}" class="alert alert-error" role="alert">Nom d'utilisateur ou mot de passe invalide.</div>
+        <div th:if="${param.logout}" class="alert alert-success" role="status">Vous avez été déconnecté avec succès.</div>
+        <!-- Thymeleaf insère automatiquement le champ caché _csrf lors du POST. -->
+        <form th:action="@{/login}" method="post">
+            <div class="form-field">
+                <label for="username">Nom d'utilisateur</label>
+                <input id="username" name="username" type="text" autocomplete="username" placeholder="Votre identifiant" required autofocus>
+            </div>
+            <div class="form-field">
+                <label for="password">Mot de passe</label>
+                <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Votre mot de passe" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Se connecter <span aria-hidden="true">→</span></button>
+        </form>
+        <div class="demo-note"><strong>Comptes de démonstration</strong><span>user / 1111 &nbsp;·&nbsp; admin / 1234</span></div>
+    </section>
+</main>
+<footer class="site-footer">Démonstration pédagogique : ne pas utiliser ces identifiants en production.</footer>
+</body>
+</html>

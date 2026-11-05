@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>403 - Accès refusé | Spring Security Demo</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="site-header"><div class="container header-inner"><a class="brand" th:href="@{/}"><span class="brand-mark" aria-hidden="true">S</span><span>Spring <strong>Security</strong></span></a></div></header>
+<main class="error-layout"><div class="error-code">403</div><h1>Accès refusé</h1><p>Votre compte ne dispose pas du rôle nécessaire pour consulter cette page.</p><a class="btn btn-primary" th:href="@{/}">Retour à l'accueil <span aria-hidden="true">→</span></a></main>
+</body>
+</html>

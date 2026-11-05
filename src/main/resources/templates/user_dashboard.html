@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Espace utilisateur | Spring Security Demo</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" th:href="@{/}"><span class="brand-mark" aria-hidden="true">S</span><span>Spring <strong>Security</strong></span></a>
+        <!-- POST requis : token CSRF ajouté automatiquement par Thymeleaf. -->
+        <form th:action="@{/logout}" method="post"><button class="nav-logout" type="submit">Déconnexion</button></form>
+    </div>
+</header>
+<main class="container dashboard-main">
+    <div class="breadcrumb"><a th:href="@{/}">Accueil</a><span>/</span><span>Espace utilisateur</span></div>
+    <div class="dashboard-intro"><span class="pill pill-user">✓ ACCÈS USER AUTORISÉ</span><h1>Tableau de bord utilisateur</h1><p>Bonjour <strong th:text="${username}">user</strong>, votre authentification a réussi.</p></div>
+    <div class="dashboard-grid">
+        <section class="dashboard-panel"><span class="eyebrow">AUTHENTIFICATION</span><h2>Session active</h2><p>Spring Security vous a identifié et a vérifié vos autorisations.</p><div class="data-row"><span>Compte connecté</span><strong th:text="${username}">user</strong></div><div class="data-row"><span>Rôle requis</span><span class="mini-code">ROLE_USER</span></div></section>
+        <section class="dashboard-panel"><span class="eyebrow">NAVIGATION</span><h2>Explorer les accès</h2><p>Essayez l'espace administrateur avec ce compte : un utilisateur sans le rôle ADMIN reçoit un code HTTP 403.</p><a class="btn btn-secondary" th:href="@{/admin/dashboard}">Tester l'accès administrateur <span aria-hidden="true">→</span></a></section>
+    </div>
+    <a class="back-link" th:href="@{/}">← Retour à l'accueil</a>
+</main>
+<footer class="site-footer">TP Spring Security · Contrôle d'accès par rôles</footer>
+</body>
+</html>
